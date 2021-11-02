@@ -5,7 +5,7 @@ cask "mpv-git" do
   url "https://github.com/NextFire/mpv-macos-git-builds/releases/download/mpv-#{version}/mpv-#{version}.zip",
     verified: "github.com/NextFire/mpv-macos-git-builds/"
   name "mpv"
-  desc "Media player based on MPlayer and mplayer2, git builds of NextFire/mpv-macos-git-builds"
+  desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io/"
 
   conflicts_with formula: "mpv", cask: "mpv"
