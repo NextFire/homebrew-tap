@@ -1,5 +1,5 @@
 cask "mpv-git" do
-  deprecate! date: "2023-09-02", because: :unmaintained
+  deprecate! date: "2023-09-02", because: :discontinued
 
   version "0.36.0-42-gaf9eac654e"
   sha256 "5a139ba46fd90401eb9f438e61a05b664a77f71e6cf7c96e93db3854c9957dd8"

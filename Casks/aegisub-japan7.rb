@@ -1,4 +1,6 @@
 cask "aegisub-japan7" do
+  deprecate! date: "2024-02-13", because: "is moved to japan7/tap/aegisub"
+
   version "c06b0c34"
   sha256 "c06b0c3407dff21f12f01403ad7dac7375ba858394b5a8c693dad24dd99e7dae"
 

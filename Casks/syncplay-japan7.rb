@@ -1,4 +1,6 @@
 cask "syncplay-japan7" do
+  deprecate! date: "2024-02-13", because: "is moved to japan7/tap/syncplay"
+
   version "6ec05007"
   sha256 "6ec05007b3331fa83615ff5a7a2d5dc1136e5f3c9cd4a9732121520f297da62b"
 
