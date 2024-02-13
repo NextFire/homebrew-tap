@@ -1,8 +1,8 @@
 cask "aegisub-japan7" do
-  version "dc269f21"
-  sha256 "dc269f21abebff07388ed6543f9be99dda198e5cf8b46e4b25f4cfd88d6d020f"
+  version "c06b0c34"
+  sha256 "c06b0c3407dff21f12f01403ad7dac7375ba858394b5a8c693dad24dd99e7dae"
 
-  url "https://hikari.butaishoujo.moe/b/#{version}/Aegisub-3.2.2.dmg",
+  url "https://hikari.butaishoujo.moe/b/#{version}/Aegisub-3.2.2.dmg.zip",
       verified: "hikari.butaishoujo.moe/"
   name "Aegisub-Japan7"
   desc "Create and modify subtitles"
