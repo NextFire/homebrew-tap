@@ -34,7 +34,7 @@ for (const cask of CASKS) {
 async function updateCask(cask: Cask) {
   const { archive, sha256, installer } = await getLatest(cask);
   const url = await hikari(archive, `${installer}.zip`);
-  await $`rm -f ${archive}`;
+  await Deno.remove(archive);
   const version = url.split("/")[4];
   await updateFile(cask, {
     version,
@@ -44,10 +44,9 @@ async function updateCask(cask: Cask) {
 }
 
 async function getLatest(cask: Cask) {
-  const artifacts: Artifact[] = (
-    await $`gh api /repos/${cask.repo}/actions/artifacts`.json()
-  ).artifacts;
-  const last = artifacts.find((a) => a.name.includes(cask.filter));
+  const json: { artifacts: Artifact[] } =
+    await $`gh api /repos/${cask.repo}/actions/artifacts`.json();
+  const last = json.artifacts.find((a) => a.name.includes(cask.filter));
 
   const archive = `${crypto.randomUUID()}.zip`;
   await $`gh api ${last?.archive_download_url}`.stdout($.path(archive));
@@ -74,10 +73,10 @@ async function hikari(archive: string, name: string) {
 
 async function updateFile(
   cask: Cask,
-  ctx: { version: string; sha256: string; url: string }
+  props: { version: string; sha256: string; url: string }
 ) {
   let content = await Deno.readTextFile(`Casks/${cask.name}.rb`);
-  for (const [key, value] of Object.entries(ctx)) {
+  for (const [key, value] of Object.entries(props)) {
     content = content.replace(new RegExp(`${key} ".*"`), `${key} "${value}"`);
   }
   await Deno.writeTextFile(`Casks/${cask.name}.rb`, content);
