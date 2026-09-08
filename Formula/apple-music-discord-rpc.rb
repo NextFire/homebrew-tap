@@ -11,10 +11,9 @@ class AppleMusicDiscordRpc < Formula
   def install
     libexec.install "music-rpc.ts", "discord.ts", "jxa.ts"
     (bin/"music-rpc").write <<~SH
-      #!/bin/bash
+      #!/bin/sh
       exec "#{Formula["deno"].opt_bin}/deno" run \\
-        --allow-env --allow-run --allow-net --allow-read --allow-write \\
-        --unstable-kv \\
+        --allow-env --allow-run --allow-net --allow-read --allow-write --unstable-kv \\
         "#{libexec}/music-rpc.ts" "$@"
     SH
   end
