@@ -1,15 +1,16 @@
 class AppleMusicDiscordRpc < Formula
   desc "Discord Rich Presence Client for the macOS Apple Music app and iTunes"
   homepage "https://github.com/NextFire/apple-music-discord-rpc"
-  url "https://github.com/NextFire/apple-music-discord-rpc/archive/refs/tags/0.17.1.tar.gz"
-  sha256 "57298babb80724f4973539cb3a5b64416a536e2121193dbc280ced498a851171"
+  url "https://github.com/NextFire/apple-music-discord-rpc/archive/refs/tags/0.18.0.tar.gz"
+  sha256 "65e37da2c483b85ef98e32e2d9097e1154e5221bef81f708e4b9349d44cf50aa"
   license "MIT"
   head "https://github.com/NextFire/apple-music-discord-rpc.git", branch: "main"
 
   depends_on "deno"
 
   def install
-    bin.install "music-rpc.ts"
+    libexec.install "music-rpc.ts", "discord.ts", "jxa.ts"
+    bin.install_symlink libexec/"music-rpc.ts"
   end
 
   service do
