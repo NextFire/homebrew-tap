@@ -20,7 +20,7 @@ class AppleMusicDiscordRpc < Formula
   end
 
   service do
-    run opt_bin/"music-rpc.ts"
+    run opt_bin/"music-rpc"
     keep_alive true
     environment_variables PATH: std_service_path_env
     working_dir var/"apple-music-discord-rpc"
